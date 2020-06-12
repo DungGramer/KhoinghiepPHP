@@ -1,0 +1,12 @@
+.addItem {
+	display: none;
+}
+.fa-user-edit {
+	color: #e0a800;
+}
+.fa-trash {
+	color: red;
+}
+.fas, svg {
+	cursor: pointer;
+}

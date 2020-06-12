@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Demo Khoi nghiep</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<table class="table table-bordered productTable">
+				<thead>
+					<tr>
+						<th scope="col">ID sản phẩm</th>
+						<th scope="col">Tên</th>
+						<th scope="col">Loại sản phẩm</th>
+						<th scope="col">Màu sắc</th>
+						<th scope="col">Kích cỡ</th>
+						<th scope="col">Giới tính</th>
+						<th scope="col">Giá</th>
+						<th scope="col">Ảnh</th>
+						<th>Sửa</th>
+						<th>Xoá</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-primary">
+				<i class="fas fa-plus"></i> Thêm mới
+			</button>
+		</div>
+		<section>
+			<div class="container addItem">
+				<table>
+					<tr>
+						<td>Mã sản phẩm</td>
+						<td><input required type="text" name="Product_id" /></td>
+					</tr>
+					<tbody>
+						<tr>
+							<td>Tên sản phẩm</td>
+							<td>
+								<input
+									required=""
+									type="text"
+									name="Name"
+									placeholder="VD: Áo sơ mi"
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>Loại sản phẩm</td>
+							<td>
+								<input
+									required=""
+									type="text"
+									name="Type"
+									placeholder="VD: sm"
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="Gender">Giới tính</label></td>
+							<td>
+								<select name="Gender" id="Gender">
+									<option value="Nam">Nam</option>
+									<option value="Nữ">Nữ</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Màu sắc</td>
+							<td>
+								<input type="text" name="Color">
+							</td>
+						</tr>
+						<tr>
+							<td>Kích cỡ</td>
+							<td>
+								<input type="text" name="Size">
+							</td>
+						</tr>
+						<tr>
+							<td>Giá sản phẩm</td>
+							<td>
+								<input
+									required=""
+									type="number"
+									name="Cost"
+									placeholder="VD: 399000"
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td>Hình ảnh</td>
+							<td>
+								<input required="" type="text" name="Image" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="button" class="btn btn-success btn-hide">
+									<i class="fas fa-check"></i> Xác nhận
+							</td>
+							</button>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script defer src="all.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
