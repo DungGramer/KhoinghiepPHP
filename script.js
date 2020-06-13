@@ -31,7 +31,8 @@ let product = [
 	}
 ];
 console.log(product["length"]);
-for(item of product) {
+
+for(let item of product) {
 	let  id      = item.id;
 	let  name    = item.name;
 	let  type    = item.type;
@@ -48,6 +49,9 @@ $('.btn-primary').click(() => {
 });
 
 let arrID = product.map(x => x.id);
+
+console.log(arrID);
+
 $('.btn-hide').click(() => {
 	let id = $('input[name = "Product_id"]').val();
 	let name = $('input[name = "Name"]').val();
@@ -67,7 +71,7 @@ $('.btn-hide').click(() => {
 			gender: gender,
 			cost: cost,
 			image: url
-		})
+		});
 		$('.productTable').append('<tr><th scope="col">'+ id +'</th><td>'+name+'</td><td>'+type+'</td><td>'+gender+'</td><td>'+color+'</td><td>'+size+'</td><td>'+cost+'</td><td>'+url+'</td><td><i class="fas fa-user-edit"></i></td><td><i class="fas fa-trash"></i></td></tr>');
 	} else {
 		// $('.container').append('<h2>Trùng ID. Nhập lại!</h2>');
@@ -84,3 +88,4 @@ function updateE(e) {
 	e.parentElement.attr('contenteditable', 'true');
 	console.log(e.parentElement);
 }
+
