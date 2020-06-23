@@ -84,7 +84,7 @@ function checking(id, name, type, size, cost) {
 		$('input[name = "Type"]').focus();
 		return false;
 	}
-	if(size.length < 2) {
+	if(size.length == 0) {
 		noti('warning', 'Vui lòng nhập kích cỡ sản phẩm!');
 		$('input[name = "Size"]').focus();
 		return false;
