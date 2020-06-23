@@ -2,26 +2,20 @@
 <html lang="en">
 	<head>
 		<title>Demo Khoi nghiep</title>
-		<!-- Required meta tags -->
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+		<meta name="title" content="TH22.06 - Bootstrap & Jquery">
+		<meta name="description" content="Người thực hiện: Nguyễn Công Dũng, Phan Quang Linh, Nguyễn Văn Thanh, Trần Văn Được">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="stylesheet" href="style.css" />
 		<!-- Bootstrap CSS -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	</head>
 	<body>
+		<section>
+			<h1>TH22.06 - Bootstrap & Jquery</h1>
+		</section>
 		<div class="container">
 			<table class="table table-bordered productTable">
 				<thead>
@@ -29,9 +23,9 @@
 						<th scope="col">ID sản phẩm</th>
 						<th scope="col">Tên</th>
 						<th scope="col">Loại sản phẩm</th>
+						<th scope="col">Giới tính</th>
 						<th scope="col">Màu sắc</th>
 						<th scope="col">Kích cỡ</th>
-						<th scope="col">Giới tính</th>
 						<th scope="col">Giá</th>
 						<th scope="col">Ảnh</th>
 						<th>Sửa</th>
@@ -39,10 +33,10 @@
 					</tr>
 				</thead>
 				<tbody>
-
 				</tbody>
 			</table>
-			<button type="button" class="btn btn-primary">
+				<p class="noti-done"></p>
+			<button type="button" class="btn btn-primary addNew">
 				<i class="fas fa-plus"></i> Thêm mới
 			</button>
 		</div>
@@ -50,30 +44,18 @@
 			<div class="container addItem">
 				<table>
 					<tr>
-						<td>Mã sản phẩm</td>
+						<td>Mã sản phẩm<strong class="required"> *</strong></td>
 						<td><input required type="text" name="Product_id" /></td>
 					</tr>
 					<tbody>
 						<tr>
-							<td>Tên sản phẩm</td>
-							<td>
-								<input
-									required=""
-									type="text"
-									name="Name"
-									placeholder="VD: Áo sơ mi"
-								/>
-							</td>
+							<td>Tên sản phẩm<strong class="required"> *</strong></td>
+							<td> <input required type="text" name="Name" placeholder="VD: Áo sơ mi" /> </td>
 						</tr>
 						<tr>
-							<td>Loại sản phẩm</td>
+							<td>Loại sản phẩm<strong class="required"> *</strong></td>
 							<td>
-								<input
-									required=""
-									type="text"
-									name="Type"
-									placeholder="VD: sm"
-								/>
+								<input required type="text" name="Type" placeholder="VD: sm" />
 							</td>
 						</tr>
 						<tr>
@@ -92,20 +74,15 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Kích cỡ</td>
+							<td>Kích cỡ<strong class="required"> *</strong></td>
 							<td>
 								<input type="text" name="Size">
 							</td>
 						</tr>
 						<tr>
-							<td>Giá sản phẩm</td>
+							<td>Giá sản phẩm<strong class="required"> *</strong></td>
 							<td>
-								<input
-									required=""
-									type="number"
-									name="Cost"
-									placeholder="VD: 399000"
-								/>
+								<input required="" type="number" name="Cost" placeholder="VD: 399000" />
 							</td>
 						</tr>
 						<tr>
@@ -114,10 +91,14 @@
 								<input required="" type="text" name="Image" />
 							</td>
 						</tr>
-						<tr>
+						<tr class="button-td">
+							<td class="button-td">
+								<button type="button" class="btn btn-success btn-hide successAdd">
+								<i class="fas fa-check"></i> Xác nhận
+							</td>
 							<td>
-								<button type="button" class="btn btn-success btn-hide">
-									<i class="fas fa-check"></i> Xác nhận
+								<button type="button" class="btn btn-danger btn-hide cancelAdd">
+								<i class="fas fa-times"></i> Huỷ
 							</td>
 							</button>
 						</tr>
@@ -125,23 +106,37 @@
 				</table>
 			</div>
 		</section>
+		<!-- MODAL DELETE -->
+		<div class="modal fade" id="delItem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Bạn có chắc muốn xoá sản phẩm này?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success doneDel">Có</button>
+						<button type="button" class="btn btn-danger cancelDel" data-dismiss="modal">Huỷ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="container">
+				Tìm hiểu thêm tại: <a href="https://github.com/HUBT-TH22-06/KhoinghiepPHP">https://github.com/HUBT-TH22-06/KhoinghiepPHP</a> 
+			</div>
+		</footer>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script
-			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"
-		></script>
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<script defer src="all.min.js"></script>
 		<script src="script.js"></script>
 	</body>
